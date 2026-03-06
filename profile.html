@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Murali Krishna Pendyala — GitHub Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #07090d;
+    --surf-1:   #0d1117;
+    --surf-2:   #141920;
+    --surf-3:   #1c2330;
+    --border:   #20293a;
+    --border-hi:#2e3d52;
+    --teal:     #00c896;
+    --teal-dim: rgba(0,200,150,0.1);
+    --blue:     #4db8ff;
+    --orange:   #f4a24c;
+    --red:      #f07575;
+    --text:     #e2eaf4;
+    --text-2:   #9baab8;
+    --text-3:   #5d7185;
+    --f-display:'Syne', sans-serif;
+    --f-body:   'DM Sans', sans-serif;
+    --f-mono:   'JetBrains Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--f-body);
+    font-size: 14px;
+    line-height: 1.65;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: radial-gradient(circle, rgba(0,200,150,0.055) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none; z-index: 0;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 36px 24px 64px;
+    position: relative; z-index: 1;
+  }
+
+  /* ── SETUP BANNER ── */
+  .setup-banner {
+    background: rgba(244,162,76,0.06);
+    border: 1px solid rgba(244,162,76,0.32);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 36px;
+    font-family: var(--f-mono);
+    font-size: 11.5px;
+    line-height: 1.8;
+    color: var(--text-2);
+  }
+  .setup-banner strong {
+    font-family: var(--f-body);
+    color: var(--orange);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .setup-banner ol { padding-left: 20px; }
+  .setup-banner li { margin-bottom: 3px; }
+  .setup-banner code {
+    background: rgba(255,255,255,0.07);
+    padding: 1px 6px; border-radius: 3px; color: #ffd080;
+  }
+
+  /* ── PINS TABLE ── */
+  .pins-advisory {
+    background: rgba(240,117,117,0.04);
+    border: 1px solid rgba(240,117,117,0.28);
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-bottom: 36px;
+  }
+  .advisory-title {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 14px;
+  }
+  .pins-table { width: 100%; border-collapse: collapse; }
+  .pins-table th {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    padding: 5px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .pins-table td {
+    padding: 10px 12px;
+    color: var(--text-2);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--f-body);
+    font-size: 12.5px;
+    line-height: 1.5;
+    vertical-align: top;
+  }
+  .pins-table tr:last-child td { border-bottom: none; }
+  .pin-name { font-family: var(--f-mono); font-size: 11px; color: var(--text); }
+  .pin-status {
+    display: inline-block;
+    padding: 2px 9px; border-radius: 4px;
+    font-family: var(--f-mono); font-size: 10px; font-weight: 700;
+    white-space: nowrap;
+  }
+  .pin-keep   { background: rgba(0,200,150,0.1); color: var(--teal); border: 1px solid rgba(0,200,150,0.28); }
+  .pin-remove { background: rgba(240,117,117,0.1); color: var(--red); border: 1px solid rgba(240,117,117,0.28); }
+  .advisory-note {
+    margin-top: 14px;
+    font-family: var(--f-body);
+    font-size: 12.5px;
+    color: var(--text-2);
+    line-height: 1.55;
+  }
+  .advisory-note strong { color: var(--orange); }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 32px;
+    align-items: center;
+    padding: 40px 36px;
+    background: var(--surf-1);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 36px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.5s ease backwards;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--blue) 55%, transparent);
+  }
+  .hero::after {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 240px; height: 240px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,200,150,0.07), transparent 70%);
+    pointer-events: none;
+  }
+
+  .avatar-wrap { position: relative; flex-shrink: 0; }
+  .avatar {
+    width: 94px; height: 94px; border-radius: 50%;
+    background: linear-gradient(135deg, #0b2820, #0a1a2e);
+    border: 2px solid var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--f-display);
+    font-size: 28px; font-weight: 800; color: var(--teal);
+    box-shadow: 0 0 30px rgba(0,200,150,0.2);
+    animation: glow 5s ease-in-out infinite;
+  }
+  @keyframes glow {
+    0%,100% { box-shadow: 0 0 22px rgba(0,200,150,0.18); }
+    50%      { box-shadow: 0 0 44px rgba(0,200,150,0.36); }
+  }
+  .status-badge {
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    background: var(--surf-2); border: 1px solid var(--border);
+    border-radius: 20px; padding: 2px 9px;
+    font-family: var(--f-mono); font-size: 9px; color: var(--teal);
+    display: flex; align-items: center; gap: 5px; white-space: nowrap;
+  }
+  .status-badge::before {
+    content: ''; width: 5px; height: 5px; border-radius: 50%;
+    background: var(--teal); animation: blink 2s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero-name {
+    font-family: var(--f-display);
+    font-size: 30px; font-weight: 800; letter-spacing: -0.025em; line-height: 1.1;
+    background: linear-gradient(120deg, #fff 35%, var(--teal));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 5px;
+  }
+  .hero-meta {
+    font-family: var(--f-mono); font-size: 11px;
+    color: var(--text-3); letter-spacing: 0.05em; margin-bottom: 11px;
+  }
+  .hero-tagline {
+    font-family: var(--f-body); font-size: 14px; color: var(--text-2);
+    max-width: 460px; margin-bottom: 20px; line-height: 1.55;
+  }
+  .hero-tagline em { font-style: normal; color: var(--blue); }
+
+  .link-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .link-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 14px; border-radius: 6px;
+    font-family: var(--f-mono); font-size: 11px; font-weight: 500;
+    text-decoration: none; border: 1px solid transparent;
+    transition: transform 0.15s, filter 0.15s;
+  }
+  .link-pill:hover { transform: translateY(-2px); filter: brightness(1.15); }
+  .pill-li  { background: #0077B5; color: #fff; }
+  .pill-em  { background: #c5362b; color: #fff; }
+  .pill-web { background: var(--surf-2); color: var(--text-2); border-color: var(--border-hi); }
+
+  /* ── SECTION CHROME ── */
+  .section {
+    margin-bottom: 34px;
+    animation: fadeUp 0.55s ease backwards;
+  }
+  .section:nth-of-type(1){animation-delay:0.06s}
+  .section:nth-of-type(2){animation-delay:0.12s}
+  .section:nth-of-type(3){animation-delay:0.18s}
+  .section:nth-of-type(4){animation-delay:0.24s}
+  .section:nth-of-type(5){animation-delay:0.30s}
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(16px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  .sec-head {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+  }
+  .sec-label {
+    font-family: var(--f-mono); font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal);
+    white-space: nowrap;
+  }
+  .sec-rule {
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--border-hi), transparent);
+  }
+
+  /* ── ABOUT ── */
+  .about-card {
+    background: var(--surf-1);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 26px 28px;
+    display: grid;
+    grid-template-columns: 1fr 210px;
+    gap: 24px; align-items: start;
+  }
+  .about-lines { display: flex; flex-direction: column; gap: 14px; }
+  .about-line {
+    display: flex; gap: 12px; align-items: flex-start;
+    font-family: var(--f-body); font-size: 13.5px;
+    color: #b0c2d4; line-height: 1.6;
+  }
+  .about-dot {
+    margin-top: 8px; width: 5px; height: 5px; border-radius: 50%;
+    background: var(--teal); flex-shrink: 0;
+  }
+  .about-line strong { color: var(--text); font-weight: 600; }
+
+  .about-quote {
+    padding: 18px 16px;
+    background: var(--surf-2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+  }
+  .about-quote p {
+    font-family: var(--f-body); font-size: 12.5px;
+    font-style: italic; color: var(--text-2); line-height: 1.65;
+  }
+  .about-quote span {
+    display: block; margin-top: 10px;
+    font-family: var(--f-mono); font-size: 10px;
+    color: var(--text-3); letter-spacing: 0.06em;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px; align-items: stretch;
+  }
+  .project-card {
+    background: var(--surf-1);
+    border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px; display: flex; flex-direction: column; gap: 10px;
+    text-decoration: none; color: inherit;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .project-card::before {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 0;
+    background: linear-gradient(0deg, var(--teal-dim), transparent);
+    transition: height 0.3s ease;
+  }
+  .project-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 34px rgba(0,200,150,0.1);
+  }
+  .project-card:hover::before { height: 100%; }
+
+  .proj-top {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 8px;
+  }
+  .proj-icon { font-size: 20px; line-height: 1; }
+  .proj-arrow {
+    font-size: 16px; color: var(--text-3);
+    transition: color 0.2s, transform 0.2s; flex-shrink: 0;
+  }
+  .project-card:hover .proj-arrow { color: var(--teal); transform: translate(2px,-2px); }
+
+  .proj-name {
+    font-family: var(--f-body); font-size: 13.5px; font-weight: 600;
+    color: var(--text); line-height: 1.35; flex: 1;
+  }
+  .proj-desc {
+    font-family: var(--f-body); font-size: 12.5px;
+    color: #8fa5ba; line-height: 1.6; flex: 1;
+  }
+  .proj-bullets { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .proj-bullets li {
+    font-family: var(--f-body); font-size: 11.5px; color: #6e8499;
+    display: flex; gap: 7px; align-items: flex-start;
+  }
+  .proj-bullets li::before {
+    content: '▸'; color: var(--teal); font-size: 10px;
+    margin-top: 1px; flex-shrink: 0;
+  }
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; }
+  .proj-tag {
+    padding: 2px 9px; border-radius: 4px;
+    font-family: var(--f-mono); font-size: 10px;
+    background: var(--surf-2); color: var(--text-3); border: 1px solid var(--border);
+  }
+
+  /* ── TECH STACK ── */
+  .tech-grid {
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 12px;
+  }
+  .tech-group {
+    background: var(--surf-1); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 14px;
+    transition: border-color 0.2s;
+  }
+  .tech-group:hover { border-color: var(--border-hi); }
+  .tech-label {
+    font-family: var(--f-mono); font-size: 9.5px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text-3); margin-bottom: 12px;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    padding: 3px 10px; border-radius: 20px;
+    font-family: var(--f-mono); font-size: 10.5px;
+    background: var(--surf-2); color: #8fa5ba; border: 1px solid var(--border);
+    cursor: default; transition: all 0.18s;
+  }
+  .chip:hover { color: var(--text); border-color: var(--border-hi); }
+  .c-py { border-color:rgba(59,130,246,0.4); color:#7cb8ff; background:rgba(59,130,246,0.06); }
+  .c-ts { border-color:rgba(49,120,198,0.4); color:#7cb8ff; background:rgba(49,120,198,0.06); }
+  .c-aws{ border-color:rgba(244,162,76,0.4); color:#f4c07a; background:rgba(244,162,76,0.06); }
+  .c-db { border-color:rgba(167,85,247,0.4); color:#c4a0f0; background:rgba(167,85,247,0.06); }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--surf-1); border: 1px solid var(--border); border-radius: 12px;
+    padding: 32px 36px; display: grid;
+    grid-template-columns: 1fr auto; gap: 28px; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .cta::before {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+  }
+  .cta::after {
+    content: ''; position: absolute; bottom: -80px; right: -80px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(77,184,255,0.06), transparent 70%);
+    pointer-events: none;
+  }
+  .cta-title {
+    font-family: var(--f-display); font-size: 19px; font-weight: 800;
+    color: var(--text); margin-bottom: 7px;
+  }
+  .cta-desc {
+    font-family: var(--f-body); font-size: 13.5px;
+    color: var(--text-2); line-height: 1.6; max-width: 460px;
+  }
+  .cta-desc strong { color: var(--text); }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 22px; background: var(--teal); color: #030a07;
+    border-radius: 8px; font-family: var(--f-mono);
+    font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+    text-decoration: none; white-space: nowrap;
+    transition: all 0.2s; flex-shrink: 0; position: relative; z-index: 1;
+  }
+  .cta-btn:hover {
+    background: #00e0a8; transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0,200,150,0.3);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center; padding-top: 24px;
+    font-family: var(--f-mono); font-size: 10.5px;
+    color: var(--text-3); letter-spacing: 0.06em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .hero { grid-template-columns: 1fr; text-align: center; padding: 32px 24px; }
+    .link-row { justify-content: center; }
+    .about-card { grid-template-columns: 1fr; }
+    .about-quote { border-left: 3px solid var(--teal); border-radius: 0 8px 8px 0; }
+    .projects-grid, .cta { grid-template-columns: 1fr; }
+    .tech-grid { grid-template-columns: repeat(2,1fr); }
+    .hero-name { font-size: 24px; }
+    .cta-btn { align-self: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- SETUP -->
+  <div class="setup-banner">
+    <strong>⚙ SETUP INSTRUCTIONS</strong>
+    <ol>
+      <li>Create a new GitHub repo named exactly <code>Krishna-pendyala05</code> — this activates the profile README slot</li>
+      <li>Upload the <code>README.md</code> into that repo's root</li>
+      <li>Replace <code>YOUR_EMAIL</code>, <code>YOUR_LINKEDIN</code>, <code>YOUR_PORTFOLIO</code> with your real links</li>
+      <li>On your GitHub profile sidebar: add a short bio, location (Hyderabad, India), and LinkedIn URL</li>
+      <li>Action the pin changes in the table below before going live</li>
+    </ol>
+  </div>
+
+  <!-- PINS -->
+  <div class="pins-advisory">
+    <div class="advisory-title">📌 Pin Review — Action Required Before Going Live</div>
+    <table class="pins-table">
+      <thead>
+        <tr>
+          <th>Repo</th><th>Decision</th><th>Reason</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pin-name">django-payment-notification-service</span></td>
+          <td><span class="pin-status pin-keep">✓ Keep</span></td>
+          <td>Strong description, real AWS stack, shows production thinking</td>
+        </tr>
+        <tr>
+          <td><span class="pin-name">saas-metering-engine</span></td>
+          <td><span class="pin-status pin-keep">✓ Keep</span></td>
+          <td>ACID + multi-tenancy is senior-signal language — keep it</td>
+        </tr>
+        <tr>
+          <td><span class="pin-name">Intelligent-Incident-Log-Management-Platform</span></td>
+          <td><span class="pin-status pin-keep">✓ Keep</span></td>
+          <td>Observability is a hot recruiter keyword; solid description</td>
+        </tr>
+        <tr>
+          <td><span class="pin-name">ai-testing-agent</span></td>
+          <td><span class="pin-status pin-keep">✓ Keep</span></td>
+          <td>AI + CI/CD is highly recruiter-friendly; keep it</td>
+        </tr>
+        <tr>
+          <td><span class="pin-name">continuous-sbom</span></td>
+          <td><span class="pin-status pin-remove">✗ Unpin</span></td>
+          <td>No description, no README, no stars. Blank repos signal abandoned work — hurts more than it helps</td>
+        </tr>
+        <tr>
+          <td><span class="pin-name">tgsrtc-bus-maps</span></td>
+          <td><span class="pin-status pin-remove">✗ Unpin</span></td>
+          <td>Undescribed HTML repo sitting next to production backend systems looks jarring. Dilutes the profile signal significantly</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="advisory-note">
+      <strong>Recommendation:</strong> Run with 4 strong pins. You have 18 repos — browse them and see if one deserves the 5th slot with a good description attached. Four excellent pins beat six mediocre ones every time.
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="avatar-wrap">
+      <div class="avatar">MK</div>
+      <div class="status-badge">open to work</div>
+    </div>
+    <div>
+      <div class="hero-name">Murali Krishna Pendyala</div>
+      <div class="hero-meta">@Krishna-pendyala05 &nbsp;·&nbsp; Hyderabad, India</div>
+      <div class="hero-tagline">
+        Backend &amp; Systems Engineer — building <em>distributed systems</em> that are fast, fault-tolerant, and production-ready.
+      </div>
+      <div class="link-row">
+        <a class="link-pill pill-li" href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a class="link-pill pill-em" href="mailto:YOUR_EMAIL" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          Email
+        </a>
+        <a class="link-pill pill-web" href="https://YOUR_PORTFOLIO" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Portfolio
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section">
+    <div class="sec-head">
+      <span class="sec-label">About</span>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="about-card">
+      <div class="about-lines">
+        <div class="about-line">
+          <div class="about-dot"></div>
+          <span>Specialize in <strong>async architectures</strong> and event-driven systems — built production services on <strong>AWS SQS + Celery</strong> with full idempotency and DLQ handling.</span>
+        </div>
+        <div class="about-line">
+          <div class="about-dot"></div>
+          <span>Obsessed with <strong>ACID-compliant design</strong>, high-concurrency safety, and the kind of system behaviour that holds up at 3am during an incident.</span>
+        </div>
+        <div class="about-line">
+          <div class="about-dot"></div>
+          <span>Currently exploring <strong>AI-augmented engineering</strong> — autonomous agents with LangGraph, intelligent observability pipelines, and self-healing CI/CD.</span>
+        </div>
+      </div>
+      <div class="about-quote">
+        <p>"The best systems are invisible — they just work."</p>
+        <span>— Murali Krishna</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section">
+    <div class="sec-head">
+      <span class="sec-label">Featured Projects</span>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="projects-grid">
+
+      <a class="project-card" href="https://github.com/Krishna-pendyala05/django-payment-notification-service" target="_blank">
+        <div class="proj-top">
+          <span class="proj-icon">💳</span>
+          <div class="proj-name">Django Payment Notification Service</div>
+          <span class="proj-arrow">↗</span>
+        </div>
+        <div class="proj-desc">Async payment engine with Django REST Framework, AWS SQS, and Celery — fully decoupled HTTP intake from async workers.</div>
+        <ul class="proj-bullets">
+          <li>Idempotent processing with retry logic</li>
+          <li>Dead-letter queue (DLQ) handling</li>
+          <li>Deployed on AWS</li>
+        </ul>
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span><span class="proj-tag">Django</span><span class="proj-tag">AWS SQS</span><span class="proj-tag">Celery</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://github.com/Krishna-pendyala05/saas-metering-engine" target="_blank">
+        <div class="proj-top">
+          <span class="proj-icon">📊</span>
+          <div class="proj-name">SaaS Metering Engine</div>
+          <span class="proj-arrow">↗</span>
+        </div>
+        <div class="proj-desc">High-concurrency ACID-compliant usage metering and billing engine for multi-tenant SaaS platforms.</div>
+        <ul class="proj-bullets">
+          <li>Atomic counters under high concurrent load</li>
+          <li>Multi-tenant architecture</li>
+          <li>Real-time rate enforcement</li>
+        </ul>
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span><span class="proj-tag">FastAPI</span><span class="proj-tag">PostgreSQL</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://github.com/Krishna-pendyala05/Intelligent-Incident-Log-Management-Platform" target="_blank">
+        <div class="proj-top">
+          <span class="proj-icon">🔍</span>
+          <div class="proj-name">Intelligent Incident Log Platform</div>
+          <span class="proj-arrow">↗</span>
+        </div>
+        <div class="proj-desc">Centralized observability engine — ingests logs, detects anomalies in real time, and automates incident response for distributed systems.</div>
+        <ul class="proj-bullets">
+          <li>Real-time anomaly detection pipeline</li>
+          <li>Automated incident response</li>
+          <li>Built for distributed systems</li>
+        </ul>
+        <div class="proj-tags">
+          <span class="proj-tag">TypeScript</span><span class="proj-tag">Observability</span><span class="proj-tag">Distributed</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://github.com/Krishna-pendyala05/ai-testing-agent" target="_blank">
+        <div class="proj-top">
+          <span class="proj-icon">🤖</span>
+          <div class="proj-name">AI Testing Agent</div>
+          <span class="proj-arrow">↗</span>
+        </div>
+        <div class="proj-desc">Autonomous QA agent built with LangGraph that generates, executes, and self-heals end-to-end tests inside CI/CD pipelines.</div>
+        <ul class="proj-bullets">
+          <li>Self-healing test logic via LangGraph</li>
+          <li>Full CI/CD pipeline integration</li>
+          <li>Zero manual test maintenance</li>
+        </ul>
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span><span class="proj-tag">LangGraph</span><span class="proj-tag">CI/CD</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- TECH STACK -->
+  <div class="section">
+    <div class="sec-head">
+      <span class="sec-label">Tech Stack</span>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-group">
+        <div class="tech-label">Languages</div>
+        <div class="chips">
+          <span class="chip c-py">Python</span>
+          <span class="chip c-ts">TypeScript</span>
+          <span class="chip c-ts">JavaScript</span>
+          <span class="chip c-db">SQL</span>
+        </div>
+      </div>
+      <div class="tech-group">
+        <div class="tech-label">Frameworks</div>
+        <div class="chips">
+          <span class="chip">Django REST</span>
+          <span class="chip">FastAPI</span>
+          <span class="chip">Celery</span>
+          <span class="chip">LangGraph</span>
+        </div>
+      </div>
+      <div class="tech-group">
+        <div class="tech-label">Cloud &amp; Data</div>
+        <div class="chips">
+          <span class="chip c-aws">AWS SQS</span>
+          <span class="chip c-aws">AWS EC2</span>
+          <span class="chip c-db">PostgreSQL</span>
+          <span class="chip c-db">Redis</span>
+        </div>
+      </div>
+      <div class="tech-group">
+        <div class="tech-label">DevOps</div>
+        <div class="chips">
+          <span class="chip">Docker</span>
+          <span class="chip">GH Actions</span>
+          <span class="chip">Terraform</span>
+          <span class="chip">Linux</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="section">
+    <div class="cta">
+      <div>
+        <div class="cta-title">Open to Opportunities</div>
+        <div class="cta-desc">
+          Looking for <strong>Backend Engineer</strong>, <strong>Platform Engineer</strong>, or <strong>SWE</strong> roles.
+          Most excited about distributed systems, developer tooling, fintech, and AI-infra.
+        </div>
+      </div>
+      <a class="cta-btn" href="mailto:YOUR_EMAIL">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+        Reach Out
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    Thanks for visiting · ⭐ a repo if it helps you</div>
+
+</div>
+</body>
+</html>
