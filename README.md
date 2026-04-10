@@ -22,9 +22,9 @@
 
 ### 👋 &nbsp;About
 
-I build **production-grade distributed systems** — async pipelines, ACID-compliant billing engines, and AI-augmented DevOps tooling. My focus is on the hard operational problems: idempotency under failure, consistent behaviour under high concurrency, and observability that actually helps at 3am.
+I build **production-grade distributed systems**, async pipelines, ACID-compliant billing engines, and AI-augmented DevOps tooling. My focus is on the hard operational problems: idempotency under failure, consistent behaviour under high concurrency, and observability that actually helps at 3am.
 
-Currently at the intersection of **LLM agents and backend infrastructure** — building autonomous tooling that removes toil from engineering workflows.
+Currently at the intersection of **LLM agents and backend infrastructure**, building autonomous tooling that removes toil from engineering workflows.
 
 <br/>
 
@@ -71,7 +71,7 @@ Currently at the intersection of **LLM agents and backend infrastructure** — b
 [![AWS SQS](https://img.shields.io/badge/AWS_SQS-FF9900?style=flat-square&logo=amazonwebservices&logoColor=white)](https://github.com/Krishna-pendyala05/django-payment-notification-service)
 [![Celery](https://img.shields.io/badge/Celery-37814A?style=flat-square&logo=celery&logoColor=white)](https://github.com/Krishna-pendyala05/django-payment-notification-service)
 
-Async payment engine that fully decouples HTTP intake from processing workers — idempotent message handling, retry logic, and DLQ support. Deployed on AWS.
+Async payment engine that fully decouples HTTP intake from processing workers, idempotent message handling, retry logic, and DLQ support. Deployed on AWS.
 
 **→ [View Repository](https://github.com/Krishna-pendyala05/django-payment-notification-service)**
 
@@ -142,7 +142,7 @@ Autonomous QA agent built with LangGraph that generates, executes, and self-heal
 
 ### 🎯 &nbsp;Open to Opportunities
 
-Looking for **Backend Engineer**, **Platform Engineer**, or **SWE** roles — distributed systems, developer tooling, fintech infrastructure, or AI-augmented platforms.
+Looking for **Backend Engineer**, **Platform Engineer**, or **SWE** roles, distributed systems, developer tooling, fintech infrastructure, or AI-augmented platforms.
 
 <br/>
 
@@ -154,6 +154,6 @@ Looking for **Backend Engineer**, **Platform Engineer**, or **SWE** roles — di
 
 <br/><br/>
 
-*If any of my work helped you — a ⭐ on the repo goes a long way.*
+*If any of my work helped you, a ⭐ on the repo goes a long way.*
 
 </div>
